@@ -1,0 +1,17 @@
+name: "CI"
+image: "oven/bun:latest"
+env:
+  CI: "true"
+
+steps:
+  - name: "Print Environment"
+    run:
+      - "echo 'Hello from CI Pipeline!'"
+      - "echo 'Current directory:' && pwd"
+      - "echo 'Files:' && ls -la"
+  - name: "Install Dependencies"
+    run:
+      - "bun install --frozen-lockfile"
+  - name: "Run Tests"
+    run:
+      - "bun test"
